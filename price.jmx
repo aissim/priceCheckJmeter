@@ -12,26 +12,6 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-        <collectionProp name="Arguments.arguments">
-          <elementProp name="DATE" elementType="Argument">
-            <stringProp name="Argument.name">DATE</stringProp>
-            <stringProp name="Argument.value">2019-03-14</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="ORIGIN" elementType="Argument">
-            <stringProp name="Argument.name">ORIGIN</stringProp>
-            <stringProp name="Argument.value">CIA</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="DESTINATION" elementType="Argument">
-            <stringProp name="Argument.name">DESTINATION</stringProp>
-            <stringProp name="Argument.value">VNO</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-        </collectionProp>
-      </Arguments>
-      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -45,15 +25,139 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="DATE_FROM" elementType="Argument">
+              <stringProp name="Argument.name">DATE_FROM</stringProp>
+              <stringProp name="Argument.value">2019-03-09</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="DATE_TO" elementType="Argument">
+              <stringProp name="Argument.name">DATE_TO</stringProp>
+              <stringProp name="Argument.value">2019-03-14</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="ORIGIN" elementType="Argument">
+              <stringProp name="Argument.name">ORIGIN</stringProp>
+              <stringProp name="Argument.value">VNO</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="DESTINATION" elementType="Argument">
+              <stringProp name="Argument.name">DESTINATION</stringProp>
+              <stringProp name="Argument.value">CIA</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Price check" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="DateOut" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${DATE_FROM}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">DateOut</stringProp>
+              </elementProp>
+              <elementProp name="DateIn" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${DATE_TO}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">DateIn</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${ORIGIN}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">Origin</stringProp>
+              </elementProp>
+              <elementProp name="Destination" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${DESTINATION}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">Destination</stringProp>
+              </elementProp>
+              <elementProp name="ADT" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">2</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">ADT</stringProp>
+              </elementProp>
+              <elementProp name="CHD" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">0</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">CHD</stringProp>
+              </elementProp>
+              <elementProp name="FlexDaysIn" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">0</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">FlexDaysIn</stringProp>
+              </elementProp>
+              <elementProp name="FlexDaysOut" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">0</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">FlexDaysOut</stringProp>
+              </elementProp>
+              <elementProp name="INF" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">0</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">INF</stringProp>
+              </elementProp>
+              <elementProp name="IncludeConnectingFlights" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">IncludeConnectingFlights</stringProp>
+              </elementProp>
+              <elementProp name="RoundTrip" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">RoundTrip</stringProp>
+              </elementProp>
+              <elementProp name="TEEN" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">0</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">TEEN</stringProp>
+              </elementProp>
+              <elementProp name="ToUs" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">AGREED</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">ToUs</stringProp>
+              </elementProp>
+              <elementProp name="exists" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">false</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">exists</stringProp>
+              </elementProp>
+            </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain">desktopapps.ryanair.com/</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">v4/lt-lt/availability?ADT=2&amp;CHD=0&amp;DateOut=${DATE}&amp;Destination=${DESTINATION}&amp;FlexDaysOut=0&amp;INF=0&amp;IncludeConnectingFlights=true&amp;Origin=${ORIGIN}&amp;RoundTrip=false&amp;TEEN=0&amp;ToUs=AGREED&amp;exists=false&amp;promoCode=</stringProp>
+          <stringProp name="HTTPSampler.path">v4/lt-lt/availability</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -64,102 +168,129 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">3600000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
           <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">amount</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">amount_from</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.trips[0].dates[0].flights[0].regularFare.fares[0].amount</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
             <stringProp name="Sample.scope">all</stringProp>
             <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
-            <stringProp name="cacheKey">true</stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="script">String amount = vars.get(&quot;amount&quot;);
-float price = Float.parseFloat(amount);
-String msg = &quot;The price is dropped to &quot; + amount;
-
-if (price &lt; 23) {
-	AssertionResult.setFailureMessage(msg);
-    	AssertionResult.setFailure(true); 
-}
-vars.put(&quot;body&quot;, msg);</stringProp>
-            <stringProp name="scriptLanguage">groovy</stringProp>
-          </JSR223Assertion>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">amount_to</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.trips[1].dates[0].flights[0].regularFare.fares[0].amount</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="Sample.scope">all</stringProp>
+            <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+          </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-          <stringProp name="ConstantTimer.delay">1800000</stringProp>
-        </ConstantTimer>
-        <hashTree/>
-        <SmtpSampler guiclass="SmtpSamplerGui" testclass="SmtpSampler" testname="SMTP Sampler" enabled="true">
-          <stringProp name="SMTPSampler.server">smtp.gmail.com</stringProp>
-          <stringProp name="SMTPSampler.serverPort">587</stringProp>
-          <stringProp name="SMTPSampler.mailFrom">aissim6@gmail.com</stringProp>
-          <stringProp name="SMTPSampler.replyTo"></stringProp>
-          <stringProp name="SMTPSampler.receiverTo">aissim6@gmail.com</stringProp>
-          <stringProp name="SMTPSampler.receiverCC"></stringProp>
-          <stringProp name="SMTPSampler.receiverBCC"></stringProp>
-          <stringProp name="SMTPSampler.subject">Buy tickets from ${ORIGIN} to ${DESTINATION}</stringProp>
-          <stringProp name="SMTPSampler.suppressSubject">false</stringProp>
-          <stringProp name="SMTPSampler.include_timestamp">false</stringProp>
-          <stringProp name="SMTPSampler.message">${body}</stringProp>
-          <stringProp name="SMTPSampler.plainBody">false</stringProp>
-          <stringProp name="SMTPSampler.attachFile"></stringProp>
-          <stringProp name="SMTPSampler.useSSL">false</stringProp>
-          <stringProp name="SMTPSampler.useStartTLS">true</stringProp>
-          <stringProp name="SMTPSampler.trustAllCerts">true</stringProp>
-          <stringProp name="SMTPSampler.enforceStartTLS">false</stringProp>
-          <stringProp name="SMTPSampler.useLocalTrustStore">false</stringProp>
-          <stringProp name="SMTPSampler.trustStoreToUse"></stringProp>
-          <boolProp name="SMTPSampler.use_eml">false</boolProp>
-          <stringProp name="SMTPSampler.emlMessageToSend"></stringProp>
-          <stringProp name="SMTPSampler.useAuth">true</stringProp>
-          <stringProp name="SMTPSampler.password">kripto6grafija*</stringProp>
-          <stringProp name="SMTPSampler.username">aissim6@gmail.com</stringProp>
-          <stringProp name="SMTPSampler.messageSizeStatistics">false</stringProp>
-          <stringProp name="SMTPSampler.enableDebug">false</stringProp>
-          <collectionProp name="SMTPSampler.headerFields"/>
-        </SmtpSampler>
-        <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
+        <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+          <stringProp name="cacheKey">true</stringProp>
           <stringProp name="filename"></stringProp>
-        </ResultCollector>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">String amount_from = vars.get(&quot;amount_from&quot;);
+String amount_to = vars.get(&quot;amount_to&quot;);
+
+float price_from = Float.parseFloat(amount_from);
+float price_to = Float.parseFloat(amount_to);
+
+String origin = vars.get(&quot;ORIGIN&quot;);
+String dest = vars.get(&quot;DESTINATION&quot;);
+String msg;
+
+if (price_from &lt; 30) {
+	msg = &quot;Price from &quot; + origin + &quot; to &quot; + dest + &quot; dropped to &quot; + amount_from;
+    	AssertionResult.setFailure(true);
+    	AssertionResult.setFailureMessage(msg);
+}
+if (price_to &lt; 26) {
+	msg = &quot;Price from &quot; + dest + &quot; to &quot; + origin + &quot; dropped to &quot; + amount_to;
+    	AssertionResult.setFailure(true);
+    	AssertionResult.setFailureMessage(msg);
+}
+vars.put(&quot;body&quot;, msg);</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Assertion>
         <hashTree/>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+          <stringProp name="IfController.condition">${__groovy(vars.get(&apos;JMeterThread.last_sample_ok&apos;).equals(&apos;false&apos;),)}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
+        <hashTree>
+          <SmtpSampler guiclass="SmtpSamplerGui" testclass="SmtpSampler" testname="SMTP Sampler" enabled="true">
+            <stringProp name="SMTPSampler.server">smtp.gmail.com</stringProp>
+            <stringProp name="SMTPSampler.serverPort">587</stringProp>
+            <stringProp name="SMTPSampler.mailFrom">aissim6@gmail.com</stringProp>
+            <stringProp name="SMTPSampler.replyTo"></stringProp>
+            <stringProp name="SMTPSampler.receiverTo">aissim6@gmail.com</stringProp>
+            <stringProp name="SMTPSampler.receiverCC"></stringProp>
+            <stringProp name="SMTPSampler.receiverBCC"></stringProp>
+            <stringProp name="SMTPSampler.subject">Price dropped!</stringProp>
+            <stringProp name="SMTPSampler.suppressSubject">false</stringProp>
+            <stringProp name="SMTPSampler.include_timestamp">false</stringProp>
+            <stringProp name="SMTPSampler.message">${body}</stringProp>
+            <stringProp name="SMTPSampler.plainBody">false</stringProp>
+            <stringProp name="SMTPSampler.attachFile"></stringProp>
+            <stringProp name="SMTPSampler.useSSL">false</stringProp>
+            <stringProp name="SMTPSampler.useStartTLS">true</stringProp>
+            <stringProp name="SMTPSampler.trustAllCerts">true</stringProp>
+            <stringProp name="SMTPSampler.enforceStartTLS">false</stringProp>
+            <stringProp name="SMTPSampler.useLocalTrustStore">false</stringProp>
+            <stringProp name="SMTPSampler.trustStoreToUse"></stringProp>
+            <boolProp name="SMTPSampler.use_eml">false</boolProp>
+            <stringProp name="SMTPSampler.emlMessageToSend"></stringProp>
+            <stringProp name="SMTPSampler.useAuth">true</stringProp>
+            <stringProp name="SMTPSampler.password">kripto6grafija*</stringProp>
+            <stringProp name="SMTPSampler.username">aissim6@gmail.com</stringProp>
+            <stringProp name="SMTPSampler.messageSizeStatistics">false</stringProp>
+            <stringProp name="SMTPSampler.enableDebug">false</stringProp>
+            <collectionProp name="SMTPSampler.headerFields"/>
+          </SmtpSampler>
+          <hashTree/>
+        </hashTree>
       </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
     </hashTree>
   </hashTree>
 </jmeterTestPlan>
